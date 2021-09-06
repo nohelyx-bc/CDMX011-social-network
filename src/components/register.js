@@ -1,10 +1,15 @@
+/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from '../main.js';
+
 export const Register = () => {
-    const HomeDiv = document.createElement('div');
-    const buttonRegister = document.createElement('button');
+  const HomeDiv = document.createElement('div');
+  const buttonRegister = document.createElement('button');
 
-    buttonRegister.textContent = 'Registrar';
+  buttonRegister.textContent = 'Registrar';
 
-    HomeDiv.appendChild(buttonRegister);
+  buttonHome.addEventListener('click', () => onNavigate('/'));
+  HomeDiv.appendChild(buttonHome);
 
-    return HomeDiv;
+  return HomeDiv;
 };
