@@ -6,8 +6,39 @@ body {
     margin: 0;
     background-image: url('assets/pattern.png');
     background-repeat: repeat;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: center;
 }
 
 .logo {
     height: 100px;
+    margin: 2.5em;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    margin: 1em;
+    padding: 0.5em;
+    width: 17.5em;
+    border-radius: 0.5em;
+    border: none;
+}
+
+button{
+    text-align: center;
+    margin: 1em;
+}
+
+a {
+    margin: 1em;
 }
