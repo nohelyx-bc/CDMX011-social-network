@@ -3,17 +3,29 @@ import { onNavigate } from '../main.js';
 
 export const Home = () => {
   const HomeDiv = document.createElement('div');
-  const buttonRegister = document.createElement('button');
+  const inputUser = document.createElement('input');
+  const inputPassword = document.createElement('input');
   const buttonLogin = document.createElement('button');
+  const buttonLoginGoogle = document.createElement('button');
+  const buttonLoginGithub = document.createElement('button');
+  
 
-  buttonRegister.textContent = 'Regístrate';
-  buttonLogin.textContent = 'Inicia sesión';
+  buttonLogin.textContent = 'Ingresar';
+  buttonLoginGoogle.textContent = 'Ingresa a través de Google';
+  buttonLoginGithub.textContent = 'Ingresa a través de GitHub';
 
-  buttonRegister.addEventListener('click', () => onNavigate('/register'));
-  buttonLogin.addEventListener('click', () => onNavigate('/login'));
-
-  HomeDiv.appendChild(buttonRegister);
+  
+  HomeDiv.appendChild(inputUser);
+  HomeDiv.appendChild(inputPassword)
   HomeDiv.appendChild(buttonLogin);
+  HomeDiv.appendChild(buttonLoginGithub);
+  HomeDiv.appendChild(buttonLoginGoogle);
 
+
+  buttonLogin.addEventListener('click', () => onNavigate('/'));
+  buttonLoginGoogle.addEventListener('click', () => onNavigate('/'))
+  buttonLoginGithub.addEventListener('click', () => onNavigate('/'))
+
+  
   return HomeDiv;
 };
