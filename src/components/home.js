@@ -1,4 +1,6 @@
 /* eslint-disable import/no-cycle */
+import { logInWithGoogle } from '../lib/firebase.js';
+import { emailLogin } from '../lib/firebase.js';
 import { onNavigate } from '../main.js';
 
 // On the route home we insert the html elements which be shown in the DOM
@@ -12,10 +14,12 @@ export const Home = () => {
   const buttonLoginGithub = document.createElement('button');
   const linkPassword = document.createElement('a');
   const linkRegister = document.createElement('a');
+
   // Assign classNames to the elements so we can manipulate it with css
   HomeDiv.className = 'home';
   homeBox.className = 'home_box';
   buttonLogin.className = 'login_style';
+
   // Naming the elements
   inputUser.placeholder = 'Nombre';
   inputPassword.placeholder = 'Contraseña';
@@ -26,20 +30,29 @@ export const Home = () => {
   linkPassword.href = '#';
   linkRegister.textContent = '¿No tienes cuenta? Regístrate';
   linkRegister.href = '#';
+
   // Inserting the elements into the HomeDiv
   HomeDiv.appendChild(inputUser);
   HomeDiv.appendChild(inputPassword);
   HomeDiv.appendChild(buttonLogin);
   HomeDiv.appendChild(buttonLoginGithub);
   HomeDiv.appendChild(buttonLoginGoogle);
-  // Inserting the div "homeBox" into the "HomeDiv"
-  HomeDiv.appendChild(homeBox);
+  HomeDiv.appendChild(homeBox); // Inserting the div "homeBox" into the "HomeDiv"
   // Inserting the links into the homeBox div
   homeBox.appendChild(linkPassword);
   homeBox.appendChild(linkRegister);
+  
   // Adding the events to the buttons and links
-  buttonLogin.addEventListener('click', () => onNavigate('/'));
-  buttonLoginGoogle.addEventListener('click', () => onNavigate('/'));
+  buttonLogin.addEventListener('click', () => {
+    emailLogin();
+   
+  });
+
+  buttonLoginGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    logInWithGoogle();
+  });
+
   buttonLoginGithub.addEventListener('click', () => onNavigate('/'));
   linkPassword.addEventListener('click', () => onNavigate('/'));
   linkRegister.addEventListener('click', () => onNavigate('/register'));
