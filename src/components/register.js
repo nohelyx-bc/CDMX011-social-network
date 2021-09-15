@@ -1,5 +1,5 @@
-import { logInWithGoogle } from '../lib/firebase.js';
-import { emailRegister } from '../lib/firebase.js';
+/* eslint-disable import/no-cycle */
+import { logInWithGoogle, emailRegister } from '../lib/firebase.js';
 import { onNavigate } from '../main.js';
 
 // On the route home we insert the html elements which be shown in the DOM
@@ -19,7 +19,8 @@ export const Register = () => {
   HomeDiv.className = 'home';
   homeBox.className = 'home_box';
   buttonRegister.className = 'login_style';
-  buttonRegisterGoogle.id = 'buttonRegisterGoogle';
+  inputEmail.id = 'email';
+  inputPassword.id = 'password';
 
   // Naming the elements
   inputName.placeholder = 'Nombre';
@@ -44,14 +45,20 @@ export const Register = () => {
 
   // Adding the events to the buttons and links
   buttonRegister.addEventListener('click', (e) => {
-  emailRegister();
-});
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    emailRegister();
+  });
+  function ValidateEmail(mail) 
+  {
+  
 
-
-  buttonRegisterGoogle.addEventListener('click', (e) =>{
+  buttonRegisterGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     logInWithGoogle();
   });
+
   buttonRegisterGithub.addEventListener('click', () => onNavigate('/'));
   linkLogin.addEventListener('click', () => onNavigate('/'));
 

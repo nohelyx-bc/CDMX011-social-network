@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { Home } from './components/home.js';
 import { Register } from './components/register.js';
 import { Dashboard } from './components/dashboard.js';

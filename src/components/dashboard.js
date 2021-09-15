@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 import { logOut } from '../lib/firebase.js';
 
@@ -10,8 +11,8 @@ export const Dashboard = () => {
   HomeDiv.appendChild(buttonLogout);
 
   buttonLogout.addEventListener('click', () => {
-      logOut();
-      onNavigate('/');
+    logOut();
+    onNavigate('/');
   });
 
   return HomeDiv;
