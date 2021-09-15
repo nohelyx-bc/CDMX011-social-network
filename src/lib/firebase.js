@@ -1,21 +1,67 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { onNavigate } from '../main.js';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//Firebase configuration as an object
 const firebaseConfig = {
-  apiKey: 'AIzaSyDIwksSeUoFbp429jxCP9-Hqh0OUVZNkNI',
-  authDomain: 'otakumania-f6598.firebaseapp.com',
-  projectId: 'otakumania-f6598',
-  storageBucket: 'otakumania-f6598.appspot.com',
-  messagingSenderId: '120563658722',
-  appId: '1:120563658722:web:fea4cefc5409d9100093bb',
-  measurementId: 'G-CJSNP0MN24',
+  apiKey: "AIzaSyDIwksSeUoFbp429jxCP9-Hqh0OUVZNkNI",
+  authDomain: "otakumania-f6598.firebaseapp.com",
+  projectId: "otakumania-f6598",
+  storageBucket: "otakumania-f6598.appspot.com",
+  messagingSenderId: "120563658722",
+  appId: "1:120563658722:web:fea4cefc5409d9100093bb",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app = firebase.initializeApp(firebaseConfig);
+
+export const logInWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then((result) =>{
+    const user = result.user;
+    onNavigate('/dashboard');
+    console.log(user);
+  }).catch(() => {
+    console.log('aquí debe ir un aviso de error');
+  })
+}
+
+//Email register 
+
+export const emailRegister = () => {  
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+}
+
+  //Login with an email
+  
+export const emailLogin = () => {
+firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+  onNavigate('/dashboard');
+}
+
+//Logout code
+export const logOut = () =>{
+  firebase.auth().signOut().then(() => {
+    console.log('Se cerró sesión exitosamente');
+    alert('Se cerró sesión exitosamente');
+  }).catch((error) => {
+    
+  });
+}
