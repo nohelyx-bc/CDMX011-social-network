@@ -1,6 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { logInWithGoogle } from '../lib/firebase.js';
-import { emailLogin } from '../lib/firebase.js';
+import { logInWithGoogle, emailLogin } from '../lib/firebase.js';
 import { onNavigate } from '../main.js';
 
 // On the route home we insert the html elements which be shown in the DOM
@@ -19,6 +18,8 @@ export const Home = () => {
   HomeDiv.className = 'home';
   homeBox.className = 'home_box';
   buttonLogin.className = 'login_style';
+  inputUser.id = 'email';
+  inputPassword.id = 'password';
 
   // Naming the elements
   inputUser.placeholder = 'Nombre';
@@ -41,11 +42,13 @@ export const Home = () => {
   // Inserting the links into the homeBox div
   homeBox.appendChild(linkPassword);
   homeBox.appendChild(linkRegister);
-  
+
   // Adding the events to the buttons and links
-  buttonLogin.addEventListener('click', () => {
-    emailLogin();
-   
+  buttonLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    emailLogin(email, password);
   });
 
   buttonLoginGoogle.addEventListener('click', (e) => {
