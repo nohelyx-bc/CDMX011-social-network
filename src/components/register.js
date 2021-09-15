@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
 // On the route home we insert the html elements which be shown in the DOM
