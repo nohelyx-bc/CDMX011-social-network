@@ -50,10 +50,7 @@ export const Register = () => {
     const password = document.getElementById('password').value;
     emailRegister();
   });
-  function ValidateEmail(mail) 
-  {
   
-
   buttonRegisterGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     logInWithGoogle();

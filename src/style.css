@@ -58,6 +58,28 @@ button{
     border: none;
     color: azure;
 }
+.buttonLogOut{
+    display: flex;
+    justify-content: center;
+    width: 6em;
+    padding: 1px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 17em;
+}
+.buttonSubmit{
+    width: 10em;
+    margin-top: 0.75em;
+}
+
+textArea{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 20em;
+    height: 8em;
+
+}
 
 
 .login_style {
