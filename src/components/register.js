@@ -25,7 +25,7 @@ export const Register = () => {
   // Naming the elements
   inputName.placeholder = 'Nombre';
   inputEmail.placeholder = 'Email';
-  inputPassword.placeholder = 'Constraseña';
+  inputPassword.placeholder = 'Contraseña';
   inputConfirmPassword.placeholder = 'Confirma tu contraseña';
   buttonRegister.textContent = 'Registrar';
   buttonRegisterGoogle.textContent = 'Regístrate con Google';

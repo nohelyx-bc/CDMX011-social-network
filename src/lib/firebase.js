@@ -58,8 +58,4 @@ export const logOut = () => {
   }).catch((error) => {
 
   });
-<<<<<<< HEAD
-}
-=======
 };
->>>>>>> 462a5f48a6ac030d2b7d5bbed7fac46d99f4d031
