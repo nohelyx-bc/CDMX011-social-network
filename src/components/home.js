@@ -13,6 +13,7 @@ export const Home = () => {
   const buttonLoginGithub = document.createElement('button');
   const linkPassword = document.createElement('a');
   const linkRegister = document.createElement('a');
+  const showPassword = document.createElement('button');
 
   // Assign classNames to the elements so we can manipulate it with css
   HomeDiv.className = 'home';
@@ -20,10 +21,13 @@ export const Home = () => {
   buttonLogin.className = 'login_style';
   inputUser.id = 'email';
   inputPassword.id = 'password';
+  showPassword.className = 'eyePassword';
 
   // Naming the elements
-  inputUser.placeholder = 'Nombre';
+  inputUser.placeholder = 'Email';
+  inputUser.autocomplete = 'on';
   inputPassword.placeholder = 'Contraseña';
+  inputPassword.type = 'password';
   buttonLogin.textContent = 'Ingresar';
   buttonLoginGoogle.textContent = 'Ingresa a través de Google';
   buttonLoginGithub.textContent = 'Ingresa a través de GitHub';
@@ -35,15 +39,25 @@ export const Home = () => {
   // Inserting the elements into the HomeDiv
   HomeDiv.appendChild(inputUser);
   HomeDiv.appendChild(inputPassword);
+  HomeDiv.appendChild(showPassword);
   HomeDiv.appendChild(buttonLogin);
   HomeDiv.appendChild(buttonLoginGithub);
   HomeDiv.appendChild(buttonLoginGoogle);
-  HomeDiv.appendChild(homeBox); // Inserting the div "homeBox" into the "HomeDiv"
+  // Inserting the div "homeBox" into the "HomeDiv"
+  HomeDiv.appendChild(homeBox);
   // Inserting the links into the homeBox div
   homeBox.appendChild(linkPassword);
   homeBox.appendChild(linkRegister);
 
   // Adding the events to the buttons and links
+  showPassword.addEventListener('click', () => {
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+    } else {
+      inputPassword.type = 'password';
+    }
+  });
+
   buttonLogin.addEventListener('click', (e) => {
     e.preventDefault();
     const email = document.getElementById('email');
