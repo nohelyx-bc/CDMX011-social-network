@@ -71,6 +71,10 @@ button{
     width: 10em;
     margin-top: 0.75em;
 }
+.eyePassword{
+    width: 3em;
+    height: 2em;
+}
 
 textArea{
     display: flex;
