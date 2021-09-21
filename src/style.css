@@ -88,7 +88,8 @@ textArea{
     color: white;
     text-align: center;
     margin: 0.5em;
-    margin-top: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     background-color: #03002C;
     border-radius: 0.5em;
     border: none;
@@ -100,7 +101,7 @@ textArea{
 
 
 a {
-    margin-top: 1em;
+    margin-top: 3em;
     
 }
 
