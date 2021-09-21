@@ -2,6 +2,7 @@
 import { Home } from './components/home.js';
 import { Register } from './components/register.js';
 import { Dashboard } from './components/dashboard.js';
+import { createPost } from './components/createPost.js';
 
 /* Reasign the name of the div in the html file who'll contain *
 all the elements (with createElement and appenChild) */
@@ -12,6 +13,7 @@ const routes = {
   '/': Home,
   '/register': Register,
   '/dashboard': Dashboard,
+  '/post': createPost,
 };
 
 // Function to insert the node, html with appendChild

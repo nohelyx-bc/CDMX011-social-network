@@ -28,12 +28,11 @@ header{
 }
 
 
- .home_box {
+.home_box {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 4em;
-   
 }
 
 input{
@@ -43,6 +42,12 @@ input{
     border-radius: 0.5em;
     border: none;
     background-color: #F2E8C6;
+}
+
+hr {
+    width: 90%;
+    noshade: noshade;
+    border-color: black;
 }
 
 button{
@@ -58,19 +63,7 @@ button{
     border: none;
     color: azure;
 }
-.buttonLogOut{
-    display: flex;
-    justify-content: center;
-    width: 6em;
-    padding: 1px;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 17em;
-}
-.buttonSubmit{
-    width: 10em;
-    margin-top: 0.75em;
-}
+
 .eyePassword{
     width: 3em;
     height: 2em;
@@ -108,6 +101,29 @@ textArea{
 a {
     margin-top: 3em;
     
+}
+
+.wall-button{
+    color: none;
+    border: none;
+}
+
+.home-wall{
+    display: flex;
+    flex-direction: column;
+}
+
+.home-posts{
+    display: flex;
+    height: 75%;
+    background-color: #F2E8C6;
+}
+
+.home-menu{
+    display: flex;
+    align-content: flex-end;
+    width: 15em;
+    height: 3em;
 }
 
 @media (min-width: 1024px) {

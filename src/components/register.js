@@ -11,6 +11,7 @@ export const Register = () => {
   const inputPassword = document.createElement('input');
   const inputConfirmPassword = document.createElement('input');
   const buttonRegister = document.createElement('button');
+  const divisor = document.createElement('hr');
   const buttonRegisterGoogle = document.createElement('button');
   const buttonRegisterGithub = document.createElement('button');
   const linkLogin = document.createElement('a');
@@ -39,6 +40,7 @@ export const Register = () => {
   HomeDiv.appendChild(inputPassword);
   HomeDiv.appendChild(inputConfirmPassword);
   HomeDiv.appendChild(buttonRegister);
+  HomeDiv.appendChild(divisor);
   HomeDiv.appendChild(buttonRegisterGoogle);
   HomeDiv.appendChild(buttonRegisterGithub);
   HomeDiv.appendChild(linkLogin);

@@ -9,6 +9,7 @@ export const Home = () => {
   const inputUser = document.createElement('input');
   const inputPassword = document.createElement('input');
   const buttonLogin = document.createElement('button');
+  const divisor = document.createElement('hr');
   const buttonLoginGoogle = document.createElement('button');
   const buttonLoginGithub = document.createElement('button');
   const linkPassword = document.createElement('a');
@@ -41,6 +42,7 @@ export const Home = () => {
   HomeDiv.appendChild(inputPassword);
   HomeDiv.appendChild(showPassword);
   HomeDiv.appendChild(buttonLogin);
+  HomeDiv.appendChild(divisor);
   HomeDiv.appendChild(buttonLoginGithub);
   HomeDiv.appendChild(buttonLoginGoogle);
   // Inserting the div "homeBox" into the "HomeDiv"
