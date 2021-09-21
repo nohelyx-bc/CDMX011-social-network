@@ -4,31 +4,52 @@ import { logOut } from '../lib/firebase.js';
 
 export const Dashboard = () => {
   const HomeDiv = document.createElement('div');
-  const homeBox = document.createElement('div');
-  const textAreaWall = document.createElement('textArea');
-  const buttonSubmit = document.createElement('button');
+  const PostsDiv = document.createElement('div');
+  const MenuDiv = document.createElement('div');
+  const buttonHome = document.createElement('button');
+  const buttonPost = document.createElement('button');
   const buttonLogout = document.createElement('button');
+  const iconHome = document.createElement('i');
+  const iconPost = document.createElement('i');
+  const iconLogout = document.createElement('i');
 
-  textAreaWall.placeholder = 'Puedes publicar aquí';
-  buttonSubmit.textContent = 'Publicar';
-  buttonLogout.textContent = 'Cerrar sesión';
-  buttonLogout.className = 'buttonLogOut';
-  buttonSubmit.className = 'buttonSubmit';
-  HomeDiv.className = 'home';
-  homeBox.className = 'home_box';
+  const body = document.querySelector('body');
+  const header = document.querySelector('header');
 
-  HomeDiv.appendChild(homeBox);
-  HomeDiv.appendChild(textAreaWall);
-  HomeDiv.appendChild(buttonSubmit);
-  HomeDiv.appendChild(buttonLogout);
+  buttonHome.className = 'wall-button';
+  buttonPost.className = 'wall-button';
+  buttonLogout.className = 'wall-button';
+  iconHome.className = 'fas fa-home';
+  iconPost.className = 'fas fa-plus';
+  iconLogout.className = 'fas fa-sign-out-alt';
+  HomeDiv.className = 'home-wall';
+  PostsDiv.className = 'home-posts';
+  MenuDiv.className = 'home-menu';
 
-  buttonLogout.addEventListener('click', () => {
+  HomeDiv.appendChild(PostsDiv);
+  HomeDiv.appendChild(MenuDiv);
+  MenuDiv.appendChild(buttonHome);
+  MenuDiv.appendChild(buttonPost);
+  MenuDiv.appendChild(buttonLogout);
+  buttonHome.appendChild(iconHome);
+  buttonPost.appendChild(iconPost);
+  buttonLogout.appendChild(iconLogout);
+  body.removeChild(header);
+
+  buttonLogout.addEventListener('click', (e) => {
+    e.preventDefault();
     logOut();
     onNavigate('/');
   });
 
-  buttonSubmit.addEventListener('click', () => {
+  buttonHome.addEventListener('click', (e) => {
+    e.preventDefault();
     onNavigate('/dashboard');
+  });
+
+  buttonPost.addEventListener('click', (e) => {
+    e.preventDefault();
+    onNavigate('/post');
   });
 
   return HomeDiv;
