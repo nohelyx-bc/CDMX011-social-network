@@ -14,6 +14,7 @@ export const Home = () => {
   const buttonLoginGithub = document.createElement('button');
   const linkPassword = document.createElement('a');
   const linkRegister = document.createElement('a');
+  const iconPassword = document.createElement('i');
   const showPassword = document.createElement('button');
 
   // Assign classNames to the elements so we can manipulate it with css
@@ -22,7 +23,7 @@ export const Home = () => {
   buttonLogin.className = 'login_style';
   inputUser.id = 'email';
   inputPassword.id = 'password';
-  showPassword.className = 'eyePassword';
+  iconPassword.className = 'fas fa-eye-slash';
 
   // Naming the elements
   inputUser.placeholder = 'Email';
@@ -41,6 +42,7 @@ export const Home = () => {
   HomeDiv.appendChild(inputUser);
   HomeDiv.appendChild(inputPassword);
   HomeDiv.appendChild(showPassword);
+  showPassword.appendChild(iconPassword);
   HomeDiv.appendChild(buttonLogin);
   HomeDiv.appendChild(divisor);
   HomeDiv.appendChild(buttonLoginGithub);
@@ -52,6 +54,8 @@ export const Home = () => {
   homeBox.appendChild(linkRegister);
 
   // Adding the events to the buttons and links
+
+  // Show or hide password
   showPassword.addEventListener('click', () => {
     if (inputPassword.type === 'password') {
       inputPassword.type = 'text';
@@ -63,8 +67,8 @@ export const Home = () => {
   // Login with email
   buttonLogin.addEventListener('click', (e) => {
     e.preventDefault();
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
     emailLogin(email, password);
   });
 
