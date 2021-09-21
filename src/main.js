@@ -14,7 +14,7 @@ const routes = {
   '/dashboard': Dashboard,
 };
 
-// Function to insert the node, html con appendChild
+// Function to insert the node, html with appendChild
 export const onNavigate = (pathname) => {
   window.history.pushState(
     {},

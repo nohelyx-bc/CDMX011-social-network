@@ -58,6 +58,7 @@ export const Home = () => {
     }
   });
 
+  // Login with email
   buttonLogin.addEventListener('click', (e) => {
     e.preventDefault();
     const email = document.getElementById('email');
@@ -65,6 +66,7 @@ export const Home = () => {
     emailLogin(email, password);
   });
 
+  // Login with Google
   buttonLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     logInWithGoogle();

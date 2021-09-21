@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { onNavigate } from '../main.js';
 
 // Firebase configuration as an object
@@ -26,26 +27,33 @@ export const logInWithGoogle = () => {
 };
 
 // Email register
-export const emailRegister = () => {
+export const emailRegister = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
+      console.log(userCredential.user);
+      onNavigate('/dashboard');
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
     });
 };
 
+// console.log(firebase);
+
 // Login with an email
-export const emailLogin = () => {
-  auth().signInWithEmailAndPassword(email, password)
+export const emailLogin = (email, password) => {
+  firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+      console.log(user);
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+      alert('Correo o Contraseña no valida');
     });
   onNavigate('/dashboard');
 };

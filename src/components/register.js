@@ -46,9 +46,9 @@ export const Register = () => {
   // Adding the events to the buttons and links
   buttonRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    emailRegister(email, password);
+    const userRegister = document.getElementById('email').value;
+    const passwordRegister = document.getElementById('password').value;
+    emailRegister(userRegister.trim(), passwordRegister.trim());
   });
 
   buttonRegisterGoogle.addEventListener('click', (e) => {
