@@ -24,6 +24,7 @@ export const Home = () => {
   inputUser.id = 'email';
   inputPassword.id = 'password';
   iconPassword.className = 'fas fa-eye-slash';
+  showPassword.className = 'eyePassword';
 
   // Naming the elements
   inputUser.placeholder = 'Email';
@@ -31,8 +32,8 @@ export const Home = () => {
   inputPassword.placeholder = 'Contraseña';
   inputPassword.type = 'password';
   buttonLogin.textContent = 'Ingresar';
-  buttonLoginGoogle.textContent = 'Ingresa a través de Google';
-  buttonLoginGithub.textContent = 'Ingresa a través de GitHub';
+  buttonLoginGoogle.textContent = '  Continuar con Google';
+  buttonLoginGoogle.className = 'fab fa-google';
   linkPassword.textContent = '¿Olvidaste tu contraseña?';
   linkPassword.href = '#';
   linkRegister.textContent = '¿No tienes cuenta? Regístrate';
@@ -45,7 +46,6 @@ export const Home = () => {
   showPassword.appendChild(iconPassword);
   HomeDiv.appendChild(buttonLogin);
   HomeDiv.appendChild(divisor);
-  HomeDiv.appendChild(buttonLoginGithub);
   HomeDiv.appendChild(buttonLoginGoogle);
   // Inserting the div "homeBox" into the "HomeDiv"
   HomeDiv.appendChild(homeBox);
