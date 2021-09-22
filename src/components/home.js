@@ -11,8 +11,6 @@ export const Home = () => {
   const buttonLogin = document.createElement('button');
   const divisor = document.createElement('hr');
   const buttonLoginGoogle = document.createElement('button');
-  const buttonLoginGithub = document.createElement('button');
-  const linkPassword = document.createElement('a');
   const linkRegister = document.createElement('a');
   const iconPassword = document.createElement('i');
   const showPassword = document.createElement('button');
@@ -32,10 +30,7 @@ export const Home = () => {
   inputPassword.placeholder = 'Contraseña';
   inputPassword.type = 'password';
   buttonLogin.textContent = 'Ingresar';
-  buttonLoginGoogle.textContent = '  Continuar con Google';
-  buttonLoginGoogle.className = 'fab fa-google';
-  linkPassword.textContent = '¿Olvidaste tu contraseña?';
-  linkPassword.href = '#';
+  buttonLoginGoogle.innerHTML = ' <i class="fab fa-google"></i> Continuar con Google';
   linkRegister.textContent = '¿No tienes cuenta? Regístrate';
   linkRegister.href = '#';
 
@@ -50,7 +45,6 @@ export const Home = () => {
   // Inserting the div "homeBox" into the "HomeDiv"
   HomeDiv.appendChild(homeBox);
   // Inserting the links into the homeBox div
-  homeBox.appendChild(linkPassword);
   homeBox.appendChild(linkRegister);
 
   // Adding the events to the buttons and links
@@ -78,8 +72,6 @@ export const Home = () => {
     logInWithGoogle();
   });
 
-  buttonLoginGithub.addEventListener('click', () => onNavigate('/'));
-  linkPassword.addEventListener('click', () => onNavigate('/'));
   linkRegister.addEventListener('click', () => onNavigate('/register'));
 
   return HomeDiv;

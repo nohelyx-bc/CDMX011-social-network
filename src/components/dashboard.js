@@ -13,8 +13,7 @@ export const Dashboard = () => {
   const iconPost = document.createElement('i');
   const iconLogout = document.createElement('i');
 
-  const body = document.querySelector('body');
-  const header = document.querySelector('header');
+  //const logo = document.querySelector('.logo');
 
   buttonHome.className = 'wall-button';
   buttonPost.className = 'wall-button';
@@ -34,7 +33,7 @@ export const Dashboard = () => {
   buttonHome.appendChild(iconHome);
   buttonPost.appendChild(iconPost);
   buttonLogout.appendChild(iconLogout);
-  body.removeChild(header);
+  //logo.remove();
 
   buttonLogout.addEventListener('click', (e) => {
     e.preventDefault();
