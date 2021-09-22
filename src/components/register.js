@@ -34,8 +34,7 @@ export const Register = () => {
   inputPassword.type = 'password';
   inputConfirmPassword.type = 'password';
   buttonRegister.textContent = 'Registrar';
-  buttonRegisterGoogle.textContent = '  Continuar con Google';
-  buttonRegisterGoogle.className = 'fab fa-google';
+  buttonRegisterGoogle.innerHTML = ' <i class="fab fa-google"></i> Continuar con Google';
   linkLogin.textContent = '¿Ya tienes cuenta? Ingresa';
   linkLogin.href = '#';
 
