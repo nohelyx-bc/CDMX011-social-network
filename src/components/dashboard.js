@@ -34,7 +34,6 @@ export const Dashboard = () => {
   buttonHome.appendChild(iconHome);
   buttonPost.appendChild(iconPost);
   buttonLogout.appendChild(iconLogout);
-  body.removeChild(header);
 
   buttonLogout.addEventListener('click', (e) => {
     e.preventDefault();
