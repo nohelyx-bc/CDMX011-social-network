@@ -9,10 +9,9 @@ export const createPost = () => {
   const postTitle = document.createElement('h2');
   const firstDivisor = document.createElement('hr');
   const secondDivisor = document.createElement('hr');
+  const submitPost = document.createElement('form');
   const writePost = document.createElement('input');
   const submitButton = document.createElement('button');
-
-  //const logo = document.querySelector('.logo');
 
   backIcon.className = 'fas fa-long-arrow-alt-left';
 
@@ -24,19 +23,20 @@ export const createPost = () => {
   backButton.appendChild(backIcon);
   HomeDiv.appendChild(writeDiv);
   writeDiv.appendChild(postTitle);
-  writeDiv.appendChild(firstDivisor);
-  writeDiv.appendChild(writePost);
-  writeDiv.appendChild(secondDivisor);
-  writeDiv.appendChild(submitButton);
-  //logo.remove();
+  writeDiv.appendChild(submitPost);
+  submitPost.appendChild(firstDivisor);
+  submitPost.appendChild(writePost);
+  submitPost.appendChild(secondDivisor);
+  submitPost.appendChild(submitButton);
 
   backButton.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/dashboard');
   });
 
-  submitButton.addEventListener('click', (e) => {
+  submitPost.addEventListener('submit', (e) => {
     e.preventDefault();
+    console.log('submiting');
     onNavigate('/dashboard');
   });
 
