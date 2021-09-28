@@ -27,8 +27,6 @@ export async function logInWithGoogle() {
   });
 }
 
-// console.log(firebase);
-
 // Login with an email
 export async function emailLogin(email, password) {
   firebase.auth().signInWithEmailAndPassword(email, password)

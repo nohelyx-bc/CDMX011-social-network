@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { getUUID } from '../lib/utils.js';
+
+import { savePosts } from '../lib/firestore.js';
 
 export const createPost = () => {
   const HomeDiv = document.createElement('div');
@@ -15,6 +16,8 @@ export const createPost = () => {
   const submitButton = document.createElement('button');
 
   backIcon.className = 'fas fa-long-arrow-alt-left';
+  submitPost.id = 'submitPost';
+  writePost.id = 'writePost';
 
   postTitle.textContent = '¿Qué nos cuentas hoy?';
   writePost.placeholder = 'Escribe tu post aquí';
@@ -35,26 +38,18 @@ export const createPost = () => {
     onNavigate('/dashboard');
   });
 
-  async function addPost(text) {
-    try {
-      const posts = {
-        id: getUUID(),
-        text: text,
-        completed: false,
-        userid: currentUser.uid,
-      };
-      const response = await (posts);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  submitPost.addEventListener('submit', (e) => {
+
+  submitPost.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const text = writePost.value;
-    if (text !== '') {
-      addPost(text);
-    }
-    console.log('submiting');
+
+    const postForm = document.getElementById('submitPost');
+
+    const newPost = postForm['writePost'].value;
+
+    const response = await savePosts(newPost);
+
+    console.log(response);
+
     onNavigate('/dashboard');
   });
   return HomeDiv;
