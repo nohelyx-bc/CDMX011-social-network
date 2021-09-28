@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
+
 import { savePosts } from '../lib/firestore.js';
 
 export const createPost = () => {
@@ -18,7 +19,7 @@ export const createPost = () => {
   submitPost.id = 'submitPost';
   writePost.id = 'writePost';
 
-  postTitle.textContent = '¿Qué nos cuentas hoy';
+  postTitle.textContent = '¿Qué nos cuentas hoy?';
   writePost.placeholder = 'Escribe tu post aquí';
   submitButton.textContent = 'Publicar';
 
@@ -37,6 +38,7 @@ export const createPost = () => {
     onNavigate('/dashboard');
   });
 
+
   submitPost.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -47,8 +49,8 @@ export const createPost = () => {
     const response = await savePosts(newPost);
 
     console.log(response);
+
     onNavigate('/dashboard');
   });
-
   return HomeDiv;
 };
