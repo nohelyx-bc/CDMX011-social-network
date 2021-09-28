@@ -20,7 +20,7 @@ export async function logInWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result) => {
     const user = result.user;
-    console.log('Bienvenid@', user.displayName);
+    console.log('Bienvenidx', user.displayName);
     onNavigate('/dashboard');
   }).catch(() => {
     console.log('aquí debe ir un aviso de error');
@@ -34,7 +34,7 @@ export async function emailLogin(email, password) {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      console.log('Bienvenid@', user.displayName);
+      console.log('Bienvenidx', user.displayName);
       onNavigate('/dashboard');
     })
     .catch((error) => {
