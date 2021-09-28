@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOut } from '../lib/firebase.js';
+import { logOut } from '../lib/auth.js';
 
 export const Dashboard = () => {
   const HomeDiv = document.createElement('div');

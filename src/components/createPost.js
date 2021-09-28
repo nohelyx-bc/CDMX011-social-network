@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
+import { getUUID } from '../lib/utils.js';
 
 export const createPost = () => {
   const HomeDiv = document.createElement('div');
@@ -15,7 +16,7 @@ export const createPost = () => {
 
   backIcon.className = 'fas fa-long-arrow-alt-left';
 
-  postTitle.textContent = '¿Qué nos cuentas hoy';
+  postTitle.textContent = '¿Qué nos cuentas hoy?';
   writePost.placeholder = 'Escribe tu post aquí';
   submitButton.textContent = 'Publicar';
 
@@ -34,11 +35,27 @@ export const createPost = () => {
     onNavigate('/dashboard');
   });
 
+  async function addPost(text) {
+    try {
+      const posts = {
+        id: getUUID(),
+        text: text,
+        completed: false,
+        userid: currentUser.uid,
+      };
+      const response = await (posts);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   submitPost.addEventListener('submit', (e) => {
     e.preventDefault();
+    const text = writePost.value;
+    if (text !== '') {
+      addPost(text);
+    }
     console.log('submiting');
     onNavigate('/dashboard');
   });
-
   return HomeDiv;
 };
