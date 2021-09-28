@@ -28,8 +28,6 @@ export const emailRegister = (email, password) => {
     });
 };
 
-// console.log(firebase);
-
 // Login with an email
 export const emailLogin = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
