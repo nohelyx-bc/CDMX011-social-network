@@ -38,17 +38,14 @@ export const createPost = () => {
     onNavigate('/dashboard');
   });
 
-
   submitPost.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const postForm = document.getElementById('submitPost');
 
-    const newPost = postForm['writePost'].value;
+    const newPost = postForm.writePost;
 
-    const response = await savePosts(newPost);
-
-    console.log(response);
+    await savePosts(newPost.value);
 
     onNavigate('/dashboard');
   });

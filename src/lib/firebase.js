@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
 import firebase from './secret.js';
 import { onNavigate } from '../main.js';
