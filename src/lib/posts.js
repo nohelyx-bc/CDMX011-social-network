@@ -1,3 +1,11 @@
 import firebase from './secret.js';
+import { db } from './firestore.js';
 
-// aqui todo lo que nos permite Crear los post , Leer los post, Actualizar los post y Borrar los bost # facebebook nunca borra nada
+const getPosts = () => db.collection('posts').get();
+
+window.addEventListener('DOMContentLoaded', async (e) => {
+  const querySnapshot = await getPosts();
+  querySnapshot.forEach((doc) => {
+    console.log(doc.data());
+  });
+});

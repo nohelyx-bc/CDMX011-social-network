@@ -28,9 +28,9 @@ export const Register = () => {
 
   // Naming the elements
   inputName.placeholder = 'Nombre';
-  inputEmail.placeholder = 'Email';
+  inputEmail.placeholder = 'Correo electrónico';
   inputPassword.placeholder = 'Contraseña';
-  inputConfirmPassword.placeholder = 'Confirma tu contraseña';
+  inputConfirmPassword.placeholder = 'Confirmar contraseña';
   inputPassword.type = 'password';
   inputConfirmPassword.type = 'password';
   buttonRegister.textContent = 'Registrar';
@@ -63,11 +63,21 @@ export const Register = () => {
     }
   });
 
-  buttonRegister.addEventListener('click', (e) => {
-    e.preventDefault();
-    const userRegister = document.getElementById('email').value;
-    const passwordRegister = document.getElementById('password').value;
-    emailRegister(userRegister.trim(), passwordRegister.trim());
+  // buttonRegister.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   const userRegister = document.getElementById('email').value;
+  //   const passwordRegister = document.getElementById('password').value;
+  //   emailRegister(userRegister.trim(), passwordRegister.trim());
+  // });
+
+  buttonRegister.addEventListener('click', async (e) => {
+    try {
+      const userRegister = document.getElementById('email').value;
+      const passwordRegister = document.getElementById('password').value;
+      await emailRegister(userRegister.trim(), passwordRegister.trim());
+    } catch (error) {
+      throw Error(error);
+    }
   });
 
   buttonRegisterGoogle.addEventListener('click', (e) => {

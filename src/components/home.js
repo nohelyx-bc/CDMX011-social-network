@@ -59,21 +59,33 @@ export const Home = () => {
   });
 
   // Login with email
-  buttonLogin.addEventListener('click', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    if (email.lenght === 0 || password.lenght === 0) {
-      alert('Completa todos los campos');
-    } else {
-      emailLogin(email, password);
+  // buttonLogin.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   const email = document.getElementById('email').value;
+  //   const password = document.getElementById('password').value;
+  //   emailLogin(email, password);
+  // });
+  buttonLogin.addEventListener('click', async (e) => {
+    try {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      await emailLogin(email, password);
+    } catch (error) {
+      throw Error(error);
     }
   });
 
   // Login with Google
-  buttonLoginGoogle.addEventListener('click', (e) => {
-    e.preventDefault();
-    logInWithGoogle();
+  // buttonLoginGoogle.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   logInWithGoogle();
+  // });
+  buttonLoginGoogle.addEventListener('click', async (e) => {
+    try {
+      await logInWithGoogle();
+    } catch (error) {
+      throw Error(error);
+    }
   });
 
   linkRegister.addEventListener('click', () => onNavigate('/register'));
