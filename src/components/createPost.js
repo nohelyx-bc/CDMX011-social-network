@@ -12,7 +12,7 @@ export const createPost = () => {
   const writePost = document.createElement('input');
   const submitButton = document.createElement('button');
 
-  //const logo = document.querySelector('.logo');
+  // const logo = document.querySelector('.logo');
 
   backIcon.className = 'fas fa-long-arrow-alt-left';
 
@@ -28,7 +28,7 @@ export const createPost = () => {
   writeDiv.appendChild(writePost);
   writeDiv.appendChild(secondDivisor);
   writeDiv.appendChild(submitButton);
-  //logo.remove();
+  // logo.remove();
 
   backButton.addEventListener('click', (e) => {
     e.preventDefault();
