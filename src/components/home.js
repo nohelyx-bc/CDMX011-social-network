@@ -63,7 +63,11 @@ export const Home = () => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    emailLogin(email, password);
+    if (email.lenght === 0 || password.lenght === 0) {
+      alert('Completa todos los campos');
+    } else {
+      emailLogin(email, password);
+    }
   });
 
   // Login with Google
