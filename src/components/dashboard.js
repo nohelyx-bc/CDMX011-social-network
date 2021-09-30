@@ -32,6 +32,8 @@ export const Dashboard = () => {
     onNavigate('/');
   });
 
+  PostsDiv.innerHTML += `<title>${'Hola :c'}</title`;
+
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/post');
