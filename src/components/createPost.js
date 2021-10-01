@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { postDom } from '../lib/posts.js';
+import { Posts } from '../lib/posts.js';
 import { savePosts } from '../lib/firestore.js';
 
 export const createPost = () => {
