@@ -9,14 +9,12 @@ export const Posts = () => {
     const allPost = [];
     doc.forEach((element) => allPost.push({ postId: element.id, infopost: element.data() }));
     console.log(allPost);
-    allPost.forEach(post=>{
-      let nediv = document.createElement('div');
-      nediv.textContent="algo"
+    allPost.forEach((post) => {
+      const nediv = document.createElement('div');
+      nediv.textContent = 'algo';
 
-      postDiv.appendChild(nediv)
-    }
-    )
-
+      postDiv.appendChild(nediv);
+    });
   });
   return postDiv;
 };
