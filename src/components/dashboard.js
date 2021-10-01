@@ -20,21 +20,19 @@ export const Dashboard = () => {
   PostsDiv.className = 'home-posts';
   MenuDiv.className = 'home-menu';
 
-  HomeDiv.appendChild(PostsDiv);
   HomeDiv.appendChild(MenuDiv);
-  PostsDiv.appendChild(Posts());
+  HomeDiv.appendChild(PostsDiv);
   MenuDiv.appendChild(buttonPost);
   MenuDiv.appendChild(buttonLogout);
   buttonPost.appendChild(iconPost);
   buttonLogout.appendChild(iconLogout);
+  PostsDiv.appendChild(Posts());
 
   buttonLogout.addEventListener('click', (e) => {
     e.preventDefault();
     logOut();
     onNavigate('/');
   });
-
-  PostsDiv.innerHTML += `<title>${'Hola'}</title`;
 
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();

@@ -118,7 +118,7 @@ a {
 .home-posts{
     display: flex;
     height: 75%;
-    background-color: #F2E8C6;
+    
 }
 
 .home-menu{
@@ -126,6 +126,19 @@ a {
     align-content: flex-end;
     width: 15em;
     height: 3em;
+}
+
+.posts {
+    background-color: #F2E8C6;
+    margin: 2em;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.postDiv{
+    margin: 1em;
+    
+    border-radius: 1em;
 }
 
 @media (min-width: 1024px) {
