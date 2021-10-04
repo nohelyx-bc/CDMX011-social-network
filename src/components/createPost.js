@@ -1,6 +1,5 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-
 import { savePosts } from '../lib/firestore.js';
 
 export const createPost = () => {
@@ -43,9 +42,9 @@ export const createPost = () => {
 
     const postForm = document.getElementById('submitPost');
 
-    const newPost = postForm.writePost;
+    const newPost = postForm.writePost.value;
 
-    await savePosts(newPost.value);
+    await savePosts(newPost);
 
     onNavigate('/dashboard');
   });

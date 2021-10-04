@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 import { logOut } from '../lib/firebase.js';
-import { Posts } from '../lib/posts.js';
+import { posts } from '../lib/posts.js';
 
 export const Dashboard = () => {
   const HomeDiv = document.createElement('div');
@@ -20,13 +20,13 @@ export const Dashboard = () => {
   PostsDiv.className = 'home-posts';
   MenuDiv.className = 'home-menu';
 
-  HomeDiv.appendChild(PostsDiv);
   HomeDiv.appendChild(MenuDiv);
-  PostsDiv.appendChild(Posts());
+  HomeDiv.appendChild(PostsDiv);
   MenuDiv.appendChild(buttonPost);
   MenuDiv.appendChild(buttonLogout);
   buttonPost.appendChild(iconPost);
   buttonLogout.appendChild(iconLogout);
+  PostsDiv.appendChild(posts());
 
   buttonLogout.addEventListener('click', (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ export const Dashboard = () => {
 
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate('/post');
+    onNavigate('/posts');
   });
 
   return HomeDiv;
