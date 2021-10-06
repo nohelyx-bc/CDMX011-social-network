@@ -4,6 +4,11 @@ import { db, showPosts, getPosts } from './firestore.js';
 
 export const Posts = () => {
   const postDiv = document.createElement('div');
+  const deletePost = document.createElement('a');
+  const editPost = document.createElement('a');
+
+  deletePost.textContent = 'Borrar';
+  editPost.textContent = 'Editar';
 
   postDiv.className = 'postDiv';
   getPosts().onSnapshot((doc) => {
@@ -13,11 +18,13 @@ export const Posts = () => {
     allPost.map((post) => {
       const domDiv = document.createElement('div');
       domDiv.className = 'posts';
-      
+
       domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
       <p> ${post.infopost.text} </p> <br>`;
 
       postDiv.appendChild(domDiv);
+        domDiv.appendChild(deletePost);
+        domDiv.appendChild(editPost);
     });
   });
   return postDiv;

@@ -125,7 +125,8 @@ a {
     display: flex;
     align-content: flex-end;
     width: 15em;
-    height: 3em;
+    height: 6em;
+    margin: none;
 }
 
 .posts {
@@ -163,5 +164,6 @@ a {
         box-shadow: 8px 7px 7px 7px rgba(0, 0, 0, 0.25);
         border-radius: 30px;
     }
-    
+
 }
+
