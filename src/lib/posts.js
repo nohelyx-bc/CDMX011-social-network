@@ -2,15 +2,13 @@
 import firebase from './secret.js';
 import { db, showPosts, getPosts } from './firestore.js';
 
-/*const dashboard = () => {
-  let emailUser = getUser; 
-  if 
-}*/
-
 export const Posts = () => {
   const postDiv = document.createElement('div');
   const deletePost = document.createElement('a');
   const editPost = document.createElement('a');
+
+  deletePost.textContent = 'Borrar';
+  editPost.textContent = 'Editar';
 
   postDiv.className = 'postDiv';
   getPosts().onSnapshot((doc) => {
@@ -21,18 +19,21 @@ export const Posts = () => {
     console.log(allPost);
     allPost.map((post) => {
       const domDiv = document.createElement('div');
-      deletePost.textContent = 'Borrar';
-      editPost.textContent = 'Editar';
       domDiv.className = 'posts';
 
-      postDiv.innerHTML = `<p> Bienvenidx ${post.infopost.uid} </p>
+      if (getUser.email === post.infopost.uid) {
+        domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
+        <p> ${post.infopost.text} </p> <br>
+        <button> Borrar </borrar>`;
+      } else {
+        domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
+        <p> ${post.infopost.text} </p> <br>`;
+      }
+
 
       domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
       <p> ${post.infopost.text} </p> <br>`;
 
-      postDiv.appendChild(domDiv);
-      domDiv.appendChild(deletePost);
-      domDiv.appendChild(editPost);
     });
   });
   return postDiv;
