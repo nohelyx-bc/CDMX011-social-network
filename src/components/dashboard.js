@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOut } from '../lib/firebase.js';
+import { logOut } from '../lib/auth.js';
 import { Posts } from '../lib/posts.js';
 
 export const Dashboard = () => {
@@ -11,8 +11,8 @@ export const Dashboard = () => {
   const buttonLogout = document.createElement('button');
   const iconPost = document.createElement('i');
   const iconLogout = document.createElement('i');
+  const welcomeUser = document.createElement('p');
  
-
   buttonPost.className = 'wall-button';
   buttonLogout.className = 'wall-button';
   iconPost.className = 'fas fa-plus';
@@ -20,9 +20,12 @@ export const Dashboard = () => {
   HomeDiv.className = 'home-wall';
   PostsDiv.className = 'home-posts';
   MenuDiv.className = 'home-menu';
+  
+  welcomeUser.className = 'welcomeUser';
 
   HomeDiv.appendChild(MenuDiv);
   HomeDiv.appendChild(PostsDiv);
+  HomeDiv.appendChild(welcomeUser);
   MenuDiv.appendChild(buttonPost);
   MenuDiv.appendChild(buttonLogout);
   buttonPost.appendChild(iconPost);
@@ -39,6 +42,21 @@ export const Dashboard = () => {
     e.preventDefault();
     onNavigate('/post');
   });
+
+  getPosts().onSnapshot((doc) => {
+    const allPost = [];
+    doc.forEach((element) => allPost.push({ postId: element.id, infopost: element.data() }));
+    console.log(allPost);
+    allPost.map((post) => {
+      const domDiv = document.createElement('div');
+      deletePost.textContent = 'Borrar';
+      editPost.textContent = 'Editar';
+      domDiv.className = 'posts';
+
+      domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
+      <p> ${post.infopost.text} </p> <br>`;
+
+      welcomeUser.appendChild(domDiv);
 
   return HomeDiv;
 };
