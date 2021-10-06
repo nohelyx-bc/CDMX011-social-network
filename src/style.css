@@ -137,9 +137,9 @@ a {
 }
 
 .postDiv{
-    margin: 1em;
+    margin: 1.1em;
     
-    border-radius: 1em;
+    border-radius: 1.1em;
 }
 
 @media (min-width: 1024px) {
