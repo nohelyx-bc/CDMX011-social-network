@@ -41,7 +41,6 @@ export const createPost = () => {
     e.preventDefault();
 
     const postForm = document.getElementById('submitPost');
-
     const newPost = postForm.writePost.value;
 
     await savePosts(newPost);
