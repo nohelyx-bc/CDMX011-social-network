@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOut } from '../lib/firebase.js';
-import { posts } from '../lib/posts.js';
+import { logOut } from '../lib/auth.js';
+import { Posts } from '../lib/posts.js';
 
 export const Dashboard = () => {
   const HomeDiv = document.createElement('div');
@@ -26,7 +26,7 @@ export const Dashboard = () => {
   MenuDiv.appendChild(buttonLogout);
   buttonPost.appendChild(iconPost);
   buttonLogout.appendChild(iconLogout);
-  PostsDiv.appendChild(posts());
+  PostsDiv.appendChild(Posts());
 
   buttonLogout.addEventListener('click', (e) => {
     e.preventDefault();
