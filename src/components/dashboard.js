@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOut } from '../lib/firebase.js';
+import { logOut } from '../lib/auth.js';
 import { Posts } from '../lib/posts.js';
 
 export const Dashboard = () => {
@@ -37,7 +37,7 @@ export const Dashboard = () => {
 
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate('/post');
+    onNavigate('/posts');
   });
 
   return HomeDiv;

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { logInWithGoogle, emailLogin } from '../lib/firebase.js';
+import { logInWithGoogle, emailLogin } from '../lib/auth.js';
 import { onNavigate } from '../main.js';
 
 // On the route home we insert the html elements which be shown in the DOM

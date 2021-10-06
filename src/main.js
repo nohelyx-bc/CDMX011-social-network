@@ -13,7 +13,7 @@ const routes = {
   '/': Home,
   '/register': Register,
   '/dashboard': Dashboard,
-  '/post': createPost,
+  '/posts': createPost,
 };
 
 // Function to insert the node, html with appendChild
