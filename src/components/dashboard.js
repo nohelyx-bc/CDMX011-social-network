@@ -40,7 +40,7 @@ export const Dashboard = () => {
 
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate('/post');
+    onNavigate('/posts');
   });
 
   getPosts().onSnapshot((doc) => {

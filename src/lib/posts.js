@@ -15,6 +15,8 @@ export const Posts = () => {
   postDiv.className = 'postDiv';
   getPosts().onSnapshot((doc) => {
     const allPost = [];
+    const getUser = () => firebase.auth().currentUser;
+    console.log(getUser);
     doc.forEach((element) => allPost.push({ postId: element.id, infopost: element.data() }));
     console.log(allPost);
     allPost.map((post) => {
