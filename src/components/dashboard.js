@@ -11,6 +11,7 @@ export const Dashboard = () => {
   const buttonLogout = document.createElement('button');
   const iconPost = document.createElement('i');
   const iconLogout = document.createElement('i');
+ 
 
   buttonPost.className = 'wall-button';
   buttonLogout.className = 'wall-button';
