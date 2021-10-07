@@ -26,7 +26,7 @@ export const Posts = () => {
         domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
         <p> ${post.infopost.text} </p> <br>
         <button class= 'deletePostButton'> Borrar </button>
-        <button class= 'editPostButton'> Editar </button>`;
+        <button class= 'editPostButton' id= 'editPostButton'> Editar </button>`;
       } else {
         domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
         <p> ${post.infopost.text} </p> <br>`;

@@ -10,6 +10,7 @@ export const Dashboard = () => {
   const MenuDiv = document.createElement('div');
   const buttonPost = document.createElement('button');
   const buttonLogout = document.createElement('button');
+  const buttonModalPost = document.createElement('button');
   const iconPost = document.createElement('i');
   const iconLogout = document.createElement('i');
 
@@ -23,11 +24,13 @@ export const Dashboard = () => {
   HomeDiv.className = 'home-wall';
   PostsDiv.className = 'home-posts';
   MenuDiv.className = 'home-menu';
+  buttonModalPost.textContent = 'Edit';
 
   HomeDiv.appendChild(MenuDiv);
   HomeDiv.appendChild(PostsDiv);
   MenuDiv.appendChild(buttonPost);
   MenuDiv.appendChild(buttonLogout);
+  MenuDiv.appendChild(buttonModalPost);
   buttonPost.appendChild(iconPost);
   buttonLogout.appendChild(iconLogout);
   PostsDiv.appendChild(Posts());
@@ -41,6 +44,11 @@ export const Dashboard = () => {
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/posts');
+  });
+
+  buttonModalPost.addEventListener('click', (e) => {
+    e.preventDefault();
+    onNavigate('/modalPost');
   });
 
   return HomeDiv;

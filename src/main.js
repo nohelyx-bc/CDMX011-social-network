@@ -3,6 +3,7 @@ import { Home } from './components/home.js';
 import { Register } from './components/register.js';
 import { Dashboard } from './components/dashboard.js';
 import { createPost } from './components/createPost.js';
+import { editModal } from './components/modalPost.js';
 
 /* Reasign the name of the div in the html file who'll contain *
 all the elements (with createElement and appenChild) */
@@ -14,6 +15,7 @@ const routes = {
   '/register': Register,
   '/dashboard': Dashboard,
   '/posts': createPost,
+  '/modalPost': editModal,
 };
 
 // Function to insert the node, html with appendChild
