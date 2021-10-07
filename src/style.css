@@ -123,6 +123,7 @@ a {
 
 .home-menu{
     display: flex;
+    text-align: center;
     align-content: flex-end;
     width: 15em;
     height: 6em;

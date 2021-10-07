@@ -1,7 +1,7 @@
 import firebase from './secret.js';
 
 const auth = firebase.auth();
-const user = () => firebase.auth().currentUser;
+export const user = () => firebase.auth().currentUser;
 export const db = firebase.firestore();
 
 export const savePosts = (text) => {

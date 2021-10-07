@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
+import firebase from '../lib/secret.js';
 import { onNavigate } from '../main.js';
-import { logOut } from '../lib/auth.js';
+import { logOut, user } from '../lib/auth.js';
 import { Posts } from '../lib/posts.js';
 
 export const Dashboard = () => {
@@ -11,6 +12,9 @@ export const Dashboard = () => {
   const buttonLogout = document.createElement('button');
   const iconPost = document.createElement('i');
   const iconLogout = document.createElement('i');
+
+  const header = document.querySelector('header');
+  header.style.display = 'none';
 
   buttonPost.className = 'wall-button';
   buttonLogout.className = 'wall-button';
