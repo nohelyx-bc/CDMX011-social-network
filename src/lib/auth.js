@@ -3,6 +3,8 @@
 import firebase from './secret.js';
 import { onNavigate } from '../main.js';
 
+export const user = () => firebase.auth().currentUser;
+
 // Email register
 export async function emailRegister(email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -21,8 +23,8 @@ export async function logInWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result) => {
     const user = result.user;
-    console.log('Bienvenidx', user.displayName);
     onNavigate('/dashboard');
+    console.log('Bienvenidx', user.displayName);
   }).catch(() => {
     console.log('aquí debe ir un aviso de error');
   });
@@ -53,3 +55,5 @@ export const logOut = () => {
     throw new Error(error);
   });
 };
+
+//

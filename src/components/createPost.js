@@ -47,5 +47,6 @@ export const createPost = () => {
 
     onNavigate('/dashboard');
   });
+
   return HomeDiv;
 };

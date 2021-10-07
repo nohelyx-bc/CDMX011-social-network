@@ -123,6 +123,7 @@ a {
 
 .home-menu{
     display: flex;
+    text-align: center;
     align-content: flex-end;
     width: 15em;
     height: 6em;
@@ -138,9 +139,9 @@ a {
 }
 
 .postDiv{
-    margin: 1em;
+    margin: 1.1em;
     
-    border-radius: 1em;
+    border-radius: 1.1em;
 }
 
 @media (min-width: 1024px) {

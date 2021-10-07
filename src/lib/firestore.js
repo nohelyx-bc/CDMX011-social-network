@@ -1,7 +1,7 @@
 import firebase from './secret.js';
 
 const auth = firebase.auth();
-const user = () => firebase.auth().currentUser;
+export const user = () => firebase.auth().currentUser;
 export const db = firebase.firestore();
 
 export const savePosts = (text) => {
@@ -17,6 +17,6 @@ export const savePosts = (text) => {
 
 export const showPosts = (data) => db.collection('posts').onSnapshot(data);
 
-//export const deletePosts = (id) => db.collection('posts').doc(id).delete().then();
+// export const deletePosts = (id) => db.collection('posts').doc(id).delete().then();
 
 export const getPosts = () => db.collection('posts');
