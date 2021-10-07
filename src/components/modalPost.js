@@ -24,6 +24,32 @@ export const editModal = () => {
   divModalContent.appendChild(textModal);
 
   buttonEdit.addEventListener('click', (e) => {
+    divModalContainer.style.display = 'block';
+
+    body.style.position = 'static';
+    body.style.height = '100%';
+    body.style.overflow = 'hidden';
+
+    span.onclick = function () {
+      divModalContainer.style.display = 'none';
+
+      body.style.position = 'inherit';
+      body.style.height = 'auto';
+      body.style.overflow = 'visible';
+    };
+
+    window.onclick = function (event) {
+      if (event.target == divModalContainer) {
+        divModalContainer.style.display = 'none';
+
+        body.style.position = 'inherit';
+        body.style.height = 'auto';
+        body.style.overflow = 'visible';
+      }
+    };
+  });
+
+  buttonEdit.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/posts');
   });
