@@ -49,7 +49,14 @@ textarea{
     border: none;
     background-color: #F2E8C6;
 }
-
+input{
+    margin: 0.5em;
+    padding: 1em;
+    width: 19em;
+    border-radius: 0.5em;
+    border: none;
+    background-color: #F2E8C6;
+}
 hr {
     width: 90%;
     noshade: noshade;
@@ -158,7 +165,7 @@ a {
 }
 
 .divModalContainer {
-    
+    display: none;
     position: fixed; 
     z-index: 1;
     padding-top: 100px;

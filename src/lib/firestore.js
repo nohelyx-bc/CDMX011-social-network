@@ -17,6 +17,10 @@ export const savePosts = (text) => {
 
 export const showPosts = (data) => db.collection('posts').onSnapshot(data);
 
-// export const deletePosts = (id) => db.collection('posts').doc(id).delete().then();
+export const deletePosts = (id) => db.collection('posts').doc(id).delete().then(() => {
+  console.log('Tu post ha sido eliminado');
+});
+
+export const editPosts = () => db.collection('posts').doc().update();
 
 export const getPosts = () => db.collection('posts');
