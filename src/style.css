@@ -17,7 +17,9 @@ header{
     display: flex;
     justify-content: center;
 }
-
+h2{
+    margin-top: 3em;
+}
 .logo {
     height: 100px;
     margin: 2em;
@@ -38,10 +40,11 @@ header{
     margin-top: 4em;
 }
 
-input{
+textarea{
     margin: 0.5em;
     padding: 1em;
     width: 19em;
+    height: 5em;
     border-radius: 0.5em;
     border: none;
     background-color: #F2E8C6;
@@ -148,6 +151,10 @@ a {
     margin: 1.1em;
     
     border-radius: 1.1em;
+}
+.writePost{
+    margin 3em;
+    padding: 2em;
 }
 
 .divModalContainer {
