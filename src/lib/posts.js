@@ -14,7 +14,8 @@ export const Posts = () => {
     console.log(currentUser.displayName);
 
     const welcomeDiv = document.createElement('div');
-    welcomeDiv.innerHTML = `<h2> Bienvenidx ${currentUser.email}</h2>`;
+    welcomeDiv.className = 'welcomeDiv';
+    welcomeDiv.innerHTML = `<h3> Bienvenidx ${currentUser.email}</h3>`;
     postDiv.appendChild(welcomeDiv);
     console.log(user);
     doc.forEach((element) => allPost.push({ postId: element.id, infopost: element.data() }));
