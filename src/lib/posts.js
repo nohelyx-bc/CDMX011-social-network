@@ -1,6 +1,6 @@
 /* eslint-disable object-curly-newline */
 import firebase from './secret.js';
-import { db, showPosts, getPosts } from './firestore.js';
+import { db, showPosts, getPosts, deletePosts } from './firestore.js';
 import { user } from './auth.js';
 
 export const Posts = () => {
@@ -33,6 +33,16 @@ export const Posts = () => {
         <p> ${post.infopost.text} </p> <br>`;
       }
       postDiv.appendChild(domDiv);
+    });
+
+    const deletePostButton = document.querySelectorAll('.deletePostButton');
+    deletePostButton.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const confirmPostDelete = confirm('¿Estás segurx que quieres eliminar tu post?');
+        if (confirmPostDelete == true) {
+          const deleting = (e.target);
+        }
+      })
     });
   });
   return postDiv;
