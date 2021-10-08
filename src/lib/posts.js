@@ -37,12 +37,12 @@ export const Posts = () => {
 
     const deletePostButton = document.querySelectorAll('.deletePostButton');
     deletePostButton.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const confirmPostDelete = confirm('¿Estás segurx que quieres eliminar tu post?');
-        if (confirmPostDelete == true) {
-          const deleting = (e.target);
+      btn.addEventListener('click', async (ele) => {
+        const confirmPostDelete = window.confirm('¿Estás segurx que quieres eliminar tu post?');
+        if (confirmPostDelete === true) {
+          await deletePosts(ele.target.dataset.id);
         }
-      })
+      });
     });
   });
   return postDiv;
