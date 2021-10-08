@@ -93,6 +93,14 @@ textArea{
 
 }
 
+input{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 20em;
+   
+
+}
 
 .login_style {
     width: 10em;
