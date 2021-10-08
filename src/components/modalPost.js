@@ -7,6 +7,7 @@ export const editModal = () => {
   const buttonEdit = document.createElement('button');
   const spanModal = document.createElement('span');
   const textModal = document.createElement('p');
+  const bodyEdit = document.createElement('body');
 
   divModalContainer.id = 'divModalContainer';
   divModalContainer.className = 'divModalContainer';
@@ -16,6 +17,7 @@ export const editModal = () => {
   spanModal.textContent = 'X';
   textModal.textContent = 'Probando el modal, yei';
   buttonEdit.textContent = 'Soy un modal (guiño guiño)';
+  bodyEdit.tagName = 'body';
 
   HomeDiv.appendChild(divModalContainer);
   divModalContainer.appendChild(divModalContent);
@@ -24,34 +26,32 @@ export const editModal = () => {
   divModalContent.appendChild(textModal);
 
   buttonEdit.addEventListener('click', (e) => {
+    e.preventDefault();
     divModalContainer.style.display = 'block';
+    onNavigate('/dashboard');
+    
+    bodyEdit.style.position = 'static';
+    bodyEdit.style.height = '100%';
+    bodyEdit.style.overflow = 'hidden';
 
-    body.style.position = 'static';
-    body.style.height = '100%';
-    body.style.overflow = 'hidden';
-
-    span.onclick = function () {
+    spanModal.onclick = () => {
       divModalContainer.style.display = 'none';
 
-      body.style.position = 'inherit';
-      body.style.height = 'auto';
-      body.style.overflow = 'visible';
+      bodyEdit.style.position = 'inherit';
+      bodyEdit.style.height = 'auto';
+      bodyEdit.style.overflow = 'visible';
     };
 
-    window.onclick = function (event) {
+    window.onclick = (event) => {
       if (event.target == divModalContainer) {
         divModalContainer.style.display = 'none';
 
-        body.style.position = 'inherit';
-        body.style.height = 'auto';
-        body.style.overflow = 'visible';
+        bodyEdit.style.position = 'inherit';
+        bodyEdit.style.height = 'auto';
+        bodyEdit.style.overflow = 'visible';
       }
     };
   });
 
-  buttonEdit.addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/posts');
-  });
   return HomeDiv;
 };
