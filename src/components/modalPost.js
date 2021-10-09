@@ -29,7 +29,7 @@ export const editModal = () => {
     e.preventDefault();
     divModalContainer.style.display = 'block';
     onNavigate('/dashboard');
-    
+
     bodyEdit.style.position = 'static';
     bodyEdit.style.height = '100%';
     bodyEdit.style.overflow = 'hidden';
@@ -43,7 +43,7 @@ export const editModal = () => {
     };
 
     window.onclick = (event) => {
-      if (event.target == divModalContainer) {
+      if (event.target === divModalContainer) {
         divModalContainer.style.display = 'none';
 
         bodyEdit.style.position = 'inherit';
