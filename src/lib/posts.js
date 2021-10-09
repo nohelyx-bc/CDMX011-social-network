@@ -1,5 +1,5 @@
 /* eslint-disable object-curly-newline */
-import { db, showPosts, getPosts, deletePosts } from './firestore.js';
+import { db, showPosts, getPosts, deletePosts, editPosts } from './firestore.js';
 import { user } from './auth.js';
 
 export const Posts = () => {
@@ -26,12 +26,12 @@ export const Posts = () => {
         domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
         <p> ${post.infopost.text} </p> <br>
         <button class= 'deletePostButton' data-id ='${post.postId}'> Borrar </button>
-        <button class= 'editPostButton' id= 'editPostButton'> Editar </button>`;
+        <button class= 'editPostButton' data-id ='${post.postId}'> Editar </button>`;
       } else {
         domDiv.innerHTML = `<p> Publicado por: <br>${post.infopost.uid} </p>
         <p> ${post.infopost.text} </p> <br>`;
       }
-      postDiv.appendChild(domDiv);
+      return postDiv.appendChild(domDiv);
     });
 
     const deletePostButton = document.querySelectorAll('.deletePostButton');
@@ -42,6 +42,13 @@ export const Posts = () => {
           console.log(e.target.dataset.id);
           await deletePosts(e.target.dataset.id);
         }
+      });
+    });
+
+    const editPostsButton = document.querySelectorAll('.editPostButton');
+    editPostsButton.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        console.log(e.target.dataset.id);
       });
     });
   });
