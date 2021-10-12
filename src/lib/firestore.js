@@ -18,6 +18,5 @@ export const savePosts = (text) => {
 export const deletePosts = (id) => db.collection('posts').doc(id).delete();
 export const showPosts = (data) => db.collection('posts').onSnapshot(data);
 
-export const editPosts = (id) => db.collection('posts').doc(id).update();
+export const editPosts = (id, updatedData) => db.collection('posts').doc(id).update(updatedData);
 export const getPosts = () => db.collection('posts');
-

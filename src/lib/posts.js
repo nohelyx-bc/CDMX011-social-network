@@ -1,5 +1,5 @@
 /* eslint-disable object-curly-newline */
-import { db, showPosts, getPosts, deletePosts } from './firestore.js';
+import { db, showPosts, getPosts, deletePosts, editPosts } from './firestore.js';
 import { user } from './auth.js';
 
 export const Posts = () => {
@@ -45,38 +45,22 @@ export const Posts = () => {
       });
     });
     // Function to edit posts
-    function editPost(id, text) {
-      document.getElementById('writePost').value = text;
-      const secondButton = document.getElementById('submitButton');
-      secondButton.innerHTML = 'Actualizar post';
-      secondButton.onclick = function () {
-        // Trying to put the update method.
-        const washingtonRef = db.collection('posts').doc(id);
-        const text = document.getElementById('writePost').value;
-        // Set the "capital" field of the city 'DC'
-        return washingtonRef.update({
-          text,
-          uid: [
-            callUser.email,
-          ],
-          likes: [],
-        })
+    const editPostButton = document.querySelectorAll('.editPostButton');
+    editPostButton.forEach((btn) => {
+      const updatePost = document.getElementById('writePost').value;
+      const updatedData = {
+        text: updatePost,
+      };
+      const submitButton = document.getElementById('submitPost');
+      btn.addEventListener('click', async (e) => {
+        await editPosts(e.target.dataset.id, updatedData)
           .then(() => {
             console.log('Document successfully updated!');
-            secondButton.innerHTML = 'Publicar';
+            submitButton.textContent = 'Guardar';
           })
-          .catch((error) => {
-            // The document probably doesn't exist.
-            console.error('Error updating document: ', error);
+          .catch(() => {
+            console.log('Ha habido un error');
           });
-      };
-    }
-    const editPostButton = document.querySelectorAll('.editPostButton');
-    editPostButton.forEach((btnn) => {
-      btnn.addEventListener('click', async (e) => {
-        await editPost();
-        console.log('Okas');
-        
       });
     });
   });
