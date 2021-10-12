@@ -20,3 +20,4 @@ export const showPosts = (data) => db.collection('posts').onSnapshot(data);
 
 export const editPosts = (id) => db.collection('posts').doc(id).update();
 export const getPosts = () => db.collection('posts');
+
