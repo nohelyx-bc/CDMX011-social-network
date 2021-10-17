@@ -19,8 +19,9 @@ export const Dashboard = () => {
   const submitButton = document.createElement('button');
   const textLogOut = document.createElement('p');
   const buttonEdit = document.createElement('button');
-  const header = document.querySelector('header');
-  header.style.display = 'none';
+
+  const logo = document.querySelector('.logo');
+  logo.style.display = 'none';
 
   writePost.id = 'writePost';
   buttonEdit.id = 'buttonEdit';
@@ -55,11 +56,16 @@ export const Dashboard = () => {
   submitPost.appendChild(submitButton);
   PostsDiv.appendChild(Posts());
 
+  //cuadro modal
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  HomeDiv.appendChild(modal);
+
   buttonLogout.addEventListener('click', (e) => {
     e.preventDefault();
     logOut();
     onNavigate('/');
-    header.style.display = 'block';
+    logo.style.display = 'block';
   });
 
   submitPost.addEventListener('submit', async (e) => {

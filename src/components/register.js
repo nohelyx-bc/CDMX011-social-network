@@ -17,6 +17,9 @@ export const Register = () => {
   const showPassword = document.createElement('button');
   const iconPassword = document.createElement('i');
 
+  const logo = document.querySelector('.logo');
+  logo.style.display = 'flex';
+
   // Assign classNames and Id's to the elements so we can manipulate it with css
   HomeDiv.className = 'home';
   homeBox.className = 'home_box';

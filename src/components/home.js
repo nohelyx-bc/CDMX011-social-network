@@ -15,6 +15,9 @@ export const Home = () => {
   const iconPassword = document.createElement('i');
   const showPassword = document.createElement('button');
 
+  const logo = document.querySelector('.logo');
+  logo.style.display = 'flex';
+
   // Assign classNames to the elements so we can manipulate it with css
   HomeDiv.className = 'home';
   homeBox.className = 'home_box';
@@ -58,13 +61,6 @@ export const Home = () => {
     }
   });
 
-  // Login with email
-  // buttonLogin.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   const email = document.getElementById('email').value;
-  //   const password = document.getElementById('password').value;
-  //   emailLogin(email, password);
-  // });
   buttonLogin.addEventListener('click', async (e) => {
     try {
       const email = document.getElementById('email').value;
@@ -75,11 +71,6 @@ export const Home = () => {
     }
   });
 
-  // Login with Google
-  // buttonLoginGoogle.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   logInWithGoogle();
-  // });
   buttonLoginGoogle.addEventListener('click', async (e) => {
     try {
       await logInWithGoogle();
