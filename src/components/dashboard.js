@@ -61,6 +61,13 @@ export const Dashboard = () => {
   modal.className = 'modal';
   HomeDiv.appendChild(modal);
 
+  //print modal
+  const printModal = `<div class= 'modalContent'> <h2> Edita tu post </h2></div>
+  <div id= "updatePost"><button id = 'save' class = 'savePost'> Guardar </button></div>`;
+  modal.innerHTML += printModal;
+  modal.style.display = 'none';
+  console.log(modal);
+
   buttonLogout.addEventListener('click', (e) => {
     e.preventDefault();
     logOut();
