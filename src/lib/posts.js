@@ -51,6 +51,9 @@ export const Posts = () => {
         console.log('este botón funciona');
         const modal = document.querySelector('.modal');
         modal.style.display = 'block';
+        const modalTarget = e.target;
+        console.log(modalTarget);
+        // editPosts(id, updatedData);
       });
     });
   });
