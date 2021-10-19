@@ -46,23 +46,20 @@ export const Posts = () => {
       });
     });
     // Function to edit posts
+    const editPostButton = document.getElementById('savePost');
     const editModalButton = document.querySelectorAll('.editPostButton');
     editModalButton.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
         e.preventDefault();
         const modal = document.querySelector('.modal');
         modal.style.display = 'block';
-        const modalTarget = e.target;
-        console.log(modalTarget);
-        // editPosts(id, updatedData);
+        const id = e.target.dataset.id;
+        editPostButton.addEventListener('click', async (e) => {
+          const updatedPost = document.getElementById('updatedPost').value;
+          editPosts(id, updatedPost);
+          modal.style.display = 'none';
+        });
       });
-    });
-
-    const editPostButton = document.getElementById('savePost');
-    editPostButton.addEventListener('click', async (e) => {
-      e.preventDefault();
-      const modal = document.querySelector('.modal');
-      modal.style.display = 'none';
     });
   });
   return HomeDiv;

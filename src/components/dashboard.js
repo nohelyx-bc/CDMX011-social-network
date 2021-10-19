@@ -61,8 +61,8 @@ export const Dashboard = () => {
   HomeDiv.appendChild(modal);
 
   // print modal
-  const printModal = `<div class= 'modalContent'> <h2> Edita tu post </h2></div>
-  <div id= "updatePost"><button id = 'savePost'> Guardar </button></div>`;
+  const printModal = `<div class= 'modalContent'> <h2> Edita tu post </h2><textarea id="updatedPost"></textarea>
+  <button id = 'savePost'> Guardar </button></div>`;
   modal.innerHTML += printModal;
   modal.style.display = 'none';
 
