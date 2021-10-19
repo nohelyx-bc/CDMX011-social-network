@@ -1,7 +1,6 @@
 /* eslint-disable import/no-cycle */
-import firebase from '../lib/secret.js';
 import { onNavigate } from '../main.js';
-import { logOut, user } from '../lib/auth.js';
+import { logOut } from '../lib/auth.js';
 import { Posts } from '../lib/posts.js';
 import { savePosts } from '../lib/firestore.js';
 
@@ -56,17 +55,16 @@ export const Dashboard = () => {
   submitPost.appendChild(submitButton);
   PostsDiv.appendChild(Posts());
 
-  //cuadro modal
+  // cuadro modal
   const modal = document.createElement('div');
   modal.className = 'modal';
   HomeDiv.appendChild(modal);
 
-  //print modal
+  // print modal
   const printModal = `<div class= 'modalContent'> <h2> Edita tu post </h2></div>
-  <div id= "updatePost"><button id = 'save' class = 'savePost'> Guardar </button></div>`;
+  <div id= "updatePost"><button id = 'savePost'> Guardar </button></div>`;
   modal.innerHTML += printModal;
   modal.style.display = 'none';
-  console.log(modal);
 
   buttonLogout.addEventListener('click', (e) => {
     e.preventDefault();
