@@ -71,9 +71,16 @@ export const Home = () => {
     }
   });
 
-  buttonLoginGoogle.addEventListener('click', async (e) => {
+  buttonLoginGoogle.addEventListener('click', (e) => {
     try {
-      await logInWithGoogle();
+      logInWithGoogle()
+        .then((result) => {
+          const user = result.user;
+          onNavigate('/dashboard');
+          console.log('Bienvenidx', user.displayName);
+        }).catch(() => {
+          console.log('aquí debe ir un aviso de error');
+        });
     } catch (error) {
       throw Error(error);
     }

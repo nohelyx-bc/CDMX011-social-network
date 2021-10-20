@@ -21,13 +21,7 @@ export async function emailRegister(email, password) {
 // Login with Google
 export async function logInWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then((result) => {
-    const user = result.user;
-    onNavigate('/dashboard');
-    console.log('Bienvenidx', user.displayName);
-  }).catch(() => {
-    console.log('aquí debe ir un aviso de error');
-  });
+  return firebase.auth().signInWithPopup(provider);
 }
 
 // Login with an email

@@ -49,16 +49,17 @@ export const Posts = () => {
     const editPostButton = document.getElementById('savePost');
     const editModalButton = document.querySelectorAll('.editPostButton');
     editModalButton.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
         const modal = document.querySelector('.modal');
         modal.style.display = 'block';
         const id = e.target.dataset.id;
-        editPostButton.addEventListener('click', async (e) => {
+        const editEvent = (e) => {
           const updatedPost = document.getElementById('updatedPost').value;
           editPosts(id, updatedPost);
           modal.style.display = 'none';
-        });
+        };
+        editPostButton.addEventListener('click', editEvent);
       });
     });
   });

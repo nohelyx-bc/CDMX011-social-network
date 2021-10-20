@@ -43,6 +43,8 @@ export const Dashboard = () => {
   submitButton.className = 'submitButton';
   writeDiv.className = 'writeDiv';
 
+  const posts = Posts();
+
   HomeDiv.appendChild(MenuDiv);
   MenuDiv.appendChild(buttonLogout);
   buttonLogout.appendChild(iconLogout);
@@ -53,7 +55,7 @@ export const Dashboard = () => {
   writeDiv.appendChild(submitPost);
   submitPost.appendChild(writePost);
   submitPost.appendChild(submitButton);
-  PostsDiv.appendChild(Posts());
+  PostsDiv.appendChild(posts);
 
   // cuadro modal
   const modal = document.createElement('div');
@@ -79,7 +81,8 @@ export const Dashboard = () => {
     const postForm = document.getElementById('submitPost');
     const newPost = postForm.writePost.value;
 
-    await savePosts(newPost);
+    // eslint-disable-next-line no-unused-expressions
+    (newPost === '') ? alert('¡No olvides escribir tu post!') : savePosts(newPost);
 
     onNavigate('/dashboard');
   });
